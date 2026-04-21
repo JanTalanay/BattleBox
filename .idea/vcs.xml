@@ -5,5 +5,7 @@
     <mapping directory="$PROJECT_DIR$/pokemon-damage-calc-guide/damage-calc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/pokemon-damage-calc-guide/pokeapi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/pokemon-damage-calc-guide/pokemon-showdown" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pokemon-damage-calc-guide/pokemon-showdown-client" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pokemon-damage-calc-guide/sprites" vcs="Git" />
   </component>
 </project>
