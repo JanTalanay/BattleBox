@@ -54,7 +54,7 @@ fun BattleBoxApp(pokemonList: List<Pokemon>){
             startDestination = "pokedex",
             modifier = Modifier.padding(innerPadding)
         ){
-            composable("pokedex") { PokedexList(pokemonList = pokemonList) }
+            composable("pokedex") { PokedexScreen(pokemonList = pokemonList) }
             composable("team") { TeamBuilderScreen() }
             composable("calc") { CalculatorScreen() }
         }

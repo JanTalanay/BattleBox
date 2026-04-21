@@ -1,5 +1,6 @@
 package com.example.battlebox.ui.theme.extra
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -15,15 +16,21 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.battlebox.data.Pokemon
-
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.Button
 
 @Composable
 fun PokemonCard(pokemon: Pokemon){
@@ -80,3 +87,27 @@ fun PokedexList(pokemonList: List<Pokemon>){
         }
     }
 }
+
+@Composable
+fun PokedexScreen(pokemonList: List<Pokemon>){
+    var searchQuery by remember { mutableStateOf("") }
+
+    val filteredList = pokemonList.filter { pokemon ->
+        pokemon.name.contains(searchQuery, ignoreCase = true) ||
+        pokemon.num.toString().contains(searchQuery)
+    }
+
+    Column(modifier = Modifier.fillMaxSize()){
+        OutlinedTextField(
+            value = searchQuery,
+            onValueChange = { newText -> searchQuery = newText },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            label = { Text("Search by Name or Number") },
+            singleLine = true
+        )
+        PokedexList(pokemonList = filteredList)
+    }
+}
+
