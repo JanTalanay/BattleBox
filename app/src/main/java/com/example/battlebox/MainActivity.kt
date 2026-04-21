@@ -19,14 +19,8 @@ class MainActivity : ComponentActivity() {
 
             setContent {
                 BattleBoxTheme{
-                    BattleBoxApp(pokemonList = pokemonList)
-//                    Surface(
-//                        modifier = Modifier.fillMaxSize(),
-//                        color = MaterialTheme.colorScheme.background
-//                    ) {
-//                        val pokemonList = pokedex.values.toList()
-//                        PokedexList(pokemonList = pokemonList)
-//                    }
+                    val myPokemonData = pokemonList
+                    BattleBoxApp(pokemonList = myPokemonData)
                 }
             }
 
